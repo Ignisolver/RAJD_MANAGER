@@ -2,3 +2,5 @@ config.py
 /tokens
 /tests
 /messages
+/.idea
+/__pycache__
