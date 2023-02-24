@@ -2,6 +2,7 @@ from messages_maker import create_registration_msg, create_sign_up_msg, \
     create_sum_up_message
 from my_gmail import MyGmail
 from my_sheet import MySheet
+from refresh_token import refresh_token
 from utils import Status
 
 
@@ -32,6 +33,7 @@ def sum_up(gmail, persons, amount, new_reg, payed):
 
 
 def main():
+    refresh_token()
     ms = MySheet()
     gmail = MyGmail()
     persons = ms.get_persons()

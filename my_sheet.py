@@ -21,7 +21,7 @@ class MySheet:
         self._sheet = service.spreadsheets()
 
     def _authenticate_sheets(self):
-        token_path = TOKEN_PATH.joinpath('sheets_token.json')
+        token_path = TOKEN_PATH.joinpath('token.json')
         if os.path.exists(token_path):
             self._creds = Credentials.from_authorized_user_file(token_path,
                                                                 [])

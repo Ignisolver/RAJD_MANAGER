@@ -13,7 +13,7 @@ class MyGmail:
         self._authenticate_gmail()
 
     def _authenticate_gmail(self):
-        token_path = TOKEN_PATH.joinpath('gmail_token.json')
+        token_path = TOKEN_PATH.joinpath('token.json')
         if os.path.exists(token_path):
             self._creds = Credentials.from_authorized_user_file(token_path, [])
         self._service = build('gmail', 'v1', credentials=self._creds)
