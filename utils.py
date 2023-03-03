@@ -1,7 +1,6 @@
 from dataclasses import dataclass
 from enum import Enum
 
-
 class Status(Enum):
     OK = "OK"  # Dodany do grupy (ręcznie)
     S_C_S = "SAV"  # Potwierdzenie zapisania wysłane (API)
