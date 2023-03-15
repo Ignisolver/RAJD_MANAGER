@@ -33,7 +33,6 @@ class MySheet:
         values = result.get('values', [])
         ids = iter(range(1, len(values) + 1))
         persons = [Person(next(ids), *data) for data in values]
-        print(persons)
         return Persons(persons)
 
     def update_statuses(self, statuses):
