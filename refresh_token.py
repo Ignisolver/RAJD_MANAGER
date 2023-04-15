@@ -19,11 +19,14 @@ def refresh_token():
             creds = Credentials.from_authorized_user_file(token_path, SCOPES)
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
+            try:
+                creds.refresh(Request())
+            except:
+                os.remove(token_path)
+                refresh_token()
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
                 TOKEN_PATH.joinpath('credentials.json'), SCOPES)
             creds = flow.run_local_server(port=0)
-        # Save the credentials for the next run
         with open(token_path, 'w') as token:
             token.write(creds.to_json())
