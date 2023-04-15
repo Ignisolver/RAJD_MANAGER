@@ -3,9 +3,9 @@ from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 
-from config import TOKEN_PATH
+from config import TOKEN_PATH, SCOPES
 
-SCOPES = ['https://www.googleapis.com/auth/spreadsheets', "https://www.googleapis.com/auth/gmail.compose"]
+
 token_path = TOKEN_PATH.joinpath("token.json")
 
 
@@ -24,6 +24,7 @@ def refresh_token():
             except:
                 os.remove(token_path)
                 refresh_token()
+                return
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
                 TOKEN_PATH.joinpath('credentials.json'), SCOPES)
